@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
+use App\Role;
 
 class UserTableSeeder extends Seeder {
 
@@ -11,22 +13,29 @@ class UserTableSeeder extends Seeder {
     {
         DB::table('users')->truncate();
 
-        $users = [
-            [
-                'name' => 'admin',
-                'email' => 'admin@example.com',
-                'password' => Hash::make('!P@ssw0rd#$')
-            ],
-            [
-                'name' => 'laravel',
-                'email' => 'laravel@example.com',
-                'password' => Hash::make('P@ssw0rd#$')
-            ]
-        ];
+        $roles = [];
 
-        foreach ($users as $user) {
-            App\User::create($user);
+        foreach (['user', 'admin'] as $role) {
+            $roles[] = Role::where('name', '=', $role)->first();
         }
+
+        /** @var $admin User */
+        $admin = User::create([
+            'name' => 'laravel',
+            'email' => 'laravel@example.com',
+            'password' => Hash::make('P@ssw0rd#$')
+        ]);
+
+        $admin->attachRoles($roles);
+
+        /** @var $user User */
+        $user = User::create([
+            'name' => 'admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('!P@ssw0rd#$')
+        ]);
+
+        $user->attachRole($roles[0]);
     }
 
 }
