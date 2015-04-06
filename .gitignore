@@ -1,0 +1,12 @@
+_ide_helper.php
+
+.env
+
+composer.phar
+composer.lock
+
+/.idea
+
+/storage
+/vendor
+/node_modules
