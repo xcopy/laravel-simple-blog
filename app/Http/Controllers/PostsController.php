@@ -5,19 +5,19 @@ use Illuminate\Http\Response;
 
 class PostsController extends Controller {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        $posts = Post::all();
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		$posts = Post::all();
 
-        $posts->load('user');
+		$posts->load('user');
 
-        return view('posts.index', ['posts' => $posts]);
-    }
+		return view('posts.index', ['posts' => $posts]);
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -39,19 +39,19 @@ class PostsController extends Controller {
 		//
 	}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        $post = Post::findOrFail($id);
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param int $id
+	 *
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$post = Post::findOrFail($id);
 
-        return view('posts.show', ['post' => $post]);
-    }
+		return view('posts.show', ['post' => $post]);
+	}
 
 	/**
 	 * Show the form for editing the specified resource.

@@ -145,10 +145,10 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Zizaco\Entrust\EntrustServiceProvider',
-        'Cviebrock\EloquentSluggable\SluggableServiceProvider',
-        'Barryvdh\Debugbar\ServiceProvider'
+		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		'Zizaco\Entrust\EntrustServiceProvider',
+		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider'
 
 	],
 
@@ -198,8 +198,8 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
-        'Entrust' => 'Zizaco\Entrust\EntrustFacade',
-        'Debugbar' => 'Barryvdh\Debugbar\Facade'
+		'Entrust' => 'Zizaco\Entrust\EntrustFacade',
+		'Debugbar' => 'Barryvdh\Debugbar\Facade'
 
 	],
 

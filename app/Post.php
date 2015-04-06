@@ -7,29 +7,29 @@ use Cviebrock\EloquentSluggable\SluggableTrait;
 
 class Post extends Model implements SluggableInterface {
 
-    use SluggableTrait;
+	use SluggableTrait;
 
-    /**
-     * {@inheritdoc}
-     */
-    protected $fillable = ['title', 'slug', 'body'];
+	/**
+	 * {@inheritdoc}
+	 */
+	protected $fillable = ['title', 'slug', 'body'];
 
-    /**
-     * @var array
-     */
-    protected $sluggable = [
-        'build_from' => 'title',
-        'save_to' => 'slug'
-    ];
+	/**
+	 * @var array
+	 */
+	protected $sluggable = [
+		'build_from' => 'title',
+		'save_to' => 'slug'
+	];
 
-    /**
-     * Belongs to user
-     *
-     * @return BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo('App\User');
-    }
+	/**
+	 * Belongs to user
+	 *
+	 * @return BelongsTo
+	 */
+	public function user()
+	{
+		return $this->belongsTo('App\User');
+	}
 
 }

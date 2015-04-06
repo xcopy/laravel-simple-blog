@@ -36,20 +36,20 @@ class UsersController extends Controller {
 		//
 	}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        /** @var $user User */
-        $user = User::findOrFail($id);
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param int $id
+	 *
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		/** @var $user User */
+		$user = User::findOrFail($id);
 
-        return view('users.show', ['user' => $user]);
-    }
+		return view('users.show', ['user' => $user]);
+	}
 
 	/**
 	 * Show the form for editing the specified resource.
