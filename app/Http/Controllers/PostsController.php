@@ -14,6 +14,8 @@ class PostsController extends Controller {
     {
         $posts = Post::all();
 
+        $posts->load('user');
+
         return view('posts.index', ['posts' => $posts]);
     }
 

@@ -48,10 +48,7 @@ class UsersController extends Controller {
         /** @var $user User */
         $user = User::findOrFail($id);
 
-        return view('users.show', [
-            'user' => $user,
-            'posts' => $user->posts()->getResults()
-        ]);
+        return view('users.show', ['user' => $user]);
     }
 
 	/**
