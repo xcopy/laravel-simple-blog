@@ -4,7 +4,7 @@ use App\Post;
 use App\User;
 use Illuminate\Http\Response;
 
-class UserController extends Controller {
+class UsersController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -39,16 +39,16 @@ class UserController extends Controller {
     /**
      * Display the specified resource.
      *
-     * @param string $name
+     * @param int $id
      *
      * @return Response
      */
-    public function show($name)
+    public function show($id)
     {
         /** @var $user User */
-        $user = User::where('name', '=', $name)->firstOrFail();
+        $user = User::findOrFail($id);
 
-        return view('user.show', [
+        return view('users.show', [
             'user' => $user,
             'posts' => $user->posts()->getResults()
         ]);

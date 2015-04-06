@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-@include('posts', ['posts' => $posts])
+@include('posts.list', ['posts' => $posts])
 @endsection

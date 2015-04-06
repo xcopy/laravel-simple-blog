@@ -11,25 +11,16 @@
 |
 */
 
-Route::get('/', 'PostController@index');
+Route::get('/', 'PostsController@index');
 
-Route::get('/posts.{format?}', [
-    'as' => 'posts',
-    'uses' => 'PostController@index'
-])
-->where('format', 'html|json');
+Route::resource('posts', 'PostsController');
 
-Route::get('/posts/{slug}', [
-    'as' => 'post',
-    'uses' => 'PostController@show'
-]);
-
-Route::get('/users/{name}', [
-    'as' => 'user',
-    'uses' => 'UserController@show'
+Route::get('/users/{id}', [
+    'as' => 'users.show',
+    'uses' => 'UsersController@show'
 ]);
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);

@@ -3,24 +3,18 @@
 use App\Post;
 use Illuminate\Http\Response;
 
-class PostController extends Controller {
+class PostsController extends Controller {
 
     /**
      * Display a listing of the resource.
      *
-     * @param null $format
-     *
      * @return Response
      */
-    public function index($format = null)
+    public function index()
     {
         $posts = Post::all();
 
-        if ($format === 'json') {
-            return response()->json($posts);
-        }
-
-        return view('post.index', ['posts' => $posts]);
+        return view('posts.index', ['posts' => $posts]);
     }
 
 	/**
@@ -46,15 +40,15 @@ class PostController extends Controller {
     /**
      * Display the specified resource.
      *
-     * @param string $slug
+     * @param int $id
      *
      * @return Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $post = Post::where('slug', '=', $slug)->firstOrFail();
+        $post = Post::findOrFail($id);
 
-        return view('post.show', ['post' => $post]);
+        return view('posts.show', ['post' => $post]);
     }
 
 	/**
