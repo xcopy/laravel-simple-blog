@@ -143,9 +143,7 @@ return [
 		'App\Providers\BusServiceProvider',
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
-		'App\Providers\RouteServiceProvider',
-
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider'
+		'App\Providers\RouteServiceProvider'
 
 	],
 
