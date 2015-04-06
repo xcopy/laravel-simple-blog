@@ -146,7 +146,8 @@ return [
 		'App\Providers\RouteServiceProvider',
 
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Zizaco\Entrust\EntrustServiceProvider'
+        'Zizaco\Entrust\EntrustServiceProvider',
+        'Cviebrock\EloquentSluggable\SluggableServiceProvider'
 
 	],
 

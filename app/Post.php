@@ -2,9 +2,12 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Str;
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 
-class Post extends Model {
+class Post extends Model implements SluggableInterface {
+
+    use SluggableTrait;
 
     /**
      * {@inheritdoc}
@@ -12,18 +15,12 @@ class Post extends Model {
     protected $fillable = ['title', 'slug', 'body'];
 
     /**
-     * {@inheritdoc}
+     * @var array
      */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::saving(function($post)
-        {
-            /** @var $post Post */
-            $post->setAttribute('slug', Str::slug($post->getAttribute('title')));
-        });
-    }
+    protected $sluggable = [
+        'build_from' => 'title',
+        'save_to' => 'slug'
+    ];
 
     /**
      * Belongs to user
