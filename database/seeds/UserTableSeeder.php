@@ -7,7 +7,7 @@ use App\Role;
 class UserTableSeeder extends Seeder {
 
     /**
-     * @{@inheritdoc}
+     * {@inheritdoc}
      */
     public function run()
     {

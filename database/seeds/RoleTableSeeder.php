@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class RoleTableSeeder extends Seeder {
 
     /**
-     * @{@inheritdoc}
+     * {@inheritdoc}
      */
     public function run()
     {
