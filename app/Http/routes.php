@@ -11,9 +11,22 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'PostController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('/posts', [
+    'as' => 'posts',
+    'uses' => 'PostController@index'
+]);
+
+Route::get('/posts/{slug}', [
+    'as' => 'post',
+    'uses' => 'PostController@show'
+]);
+
+Route::get('/users/{name}', [
+    'as' => 'user',
+    'uses' => 'UserController@show'
+]);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
