@@ -13,10 +13,11 @@
 
 Route::get('/', 'PostController@index');
 
-Route::get('/posts', [
+Route::get('/posts.{format?}', [
     'as' => 'posts',
     'uses' => 'PostController@index'
-]);
+])
+->where('format', 'html|json');
 
 Route::get('/posts/{slug}', [
     'as' => 'post',

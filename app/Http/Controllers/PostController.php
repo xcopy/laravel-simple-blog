@@ -8,13 +8,19 @@ class PostController extends Controller {
     /**
      * Display a listing of the resource.
      *
+     * @param null $format
+     *
      * @return Response
      */
-    public function index()
+    public function index($format = null)
     {
-        return view('post.index', [
-            'posts' => Post::all()
-        ]);
+        $posts = Post::all();
+
+        if ($format === 'json') {
+            return response()->json($posts);
+        }
+
+        return view('post.index', ['posts' => $posts]);
     }
 
 	/**
