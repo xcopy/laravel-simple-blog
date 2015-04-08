@@ -3,6 +3,8 @@
 use App\Post;
 use App\User;
 use Illuminate\Http\Response;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
 class UsersController extends Controller {
 
@@ -48,7 +50,18 @@ class UsersController extends Controller {
 		/** @var $user User */
 		$user = User::findOrFail($id);
 
-		return view('users.show', ['user' => $user]);
+		/** @var $builder Builder */
+		$builder = Post::where('user_id', '=', $user->getKey());
+
+		/** @var $posts Paginator */
+		$posts = $builder->paginate(10);
+
+		$posts->load('user');
+
+		return view('users.show', [
+			'user' => $user,
+			'posts' => $posts
+		]);
 	}
 
 	/**

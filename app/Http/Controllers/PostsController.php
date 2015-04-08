@@ -2,6 +2,7 @@
 
 use App\Post;
 use Illuminate\Http\Response;
+use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
 class PostsController extends Controller {
 
@@ -12,7 +13,8 @@ class PostsController extends Controller {
 	 */
 	public function index()
 	{
-		$posts = Post::all();
+		/** @var $posts Paginator */
+		$posts = Post::paginate(10);
 
 		$posts->load('user');
 
