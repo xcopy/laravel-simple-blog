@@ -7,6 +7,14 @@ use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 class PostsController extends Controller {
 
 	/**
+	 * Create a new controller instance.
+	 */
+	public function __construct()
+	{
+		$this->middleware('auth', ['except' => ['index', 'show']]);
+	}
+
+	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
