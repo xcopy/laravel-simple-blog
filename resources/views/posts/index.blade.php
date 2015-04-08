@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="container">
-	<h1>All posts</h1>
-	<hr>
-	@include('posts.list', ['posts' => $posts])
+	@include('posts._heading', ['title' => 'All posts'])
+	@include('posts._list', ['posts' => $posts])
 </div>
 @endsection
