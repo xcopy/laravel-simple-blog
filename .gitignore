@@ -7,6 +7,5 @@ composer.lock
 
 /.idea
 
-/storage
 /vendor
 /node_modules
