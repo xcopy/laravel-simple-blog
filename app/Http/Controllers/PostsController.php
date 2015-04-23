@@ -1,6 +1,9 @@
 <?php namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
+use App\Http\Requests\PostRequest;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
@@ -34,9 +37,9 @@ class PostsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
-		//
+		return view('posts.create');
 	}
 
 	/**
@@ -44,9 +47,15 @@ class PostsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(PostRequest $request)
 	{
-		//
+		/** @var $user User */
+		$user = $request->user();
+
+		/** @var $post Post */
+		$post = $user->posts()->create($request->all());
+
+		return redirect(route('posts.show', ['id' => $post->getKey()]));
 	}
 
 	/**

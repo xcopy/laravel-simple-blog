@@ -145,6 +145,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+		'Illuminate\Html\HtmlServiceProvider',
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'Zizaco\Entrust\EntrustServiceProvider',
 		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
@@ -198,6 +199,8 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
+		'Form'  => 'Illuminate\Html\FormFacade',
+		'HTML'  => 'Illuminate\Html\HtmlFacade',
 		'Entrust' => 'Zizaco\Entrust\EntrustFacade',
 		'Debugbar' => 'Barryvdh\Debugbar\Facade'
 
